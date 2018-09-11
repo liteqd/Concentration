@@ -85,14 +85,14 @@ class ConcentrationViewController: UIViewController {
         exit(0)
     }
     
-    private var colorOfButtons = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1) {
+    var colorOfButtons = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1) {
         didSet{
             updateColorOfButtons()
             updateFlipCountLabel()
         }
     }
     
-    private var colorOfBackground = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    var colorOfBackground = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     var emojiChoices = "👻🎃😾☠️🦉🦅🐞🦎🐝"
     
     required init?(coder aDecoder: NSCoder) {
@@ -155,13 +155,13 @@ class ConcentrationViewController: UIViewController {
     
         
     private func chooseTheme () {
-//        let themes = ["Sports": "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓",
-//                     "Halloween": "👻🎃😾☠️🦉🦅🐞🦎🐝",
-//                     "Animals": "🦆🦋🐌🦀🐬🐳🦓🦍🐖",
-//                     "Faces": "😇😎😀🧐😰😱🤢🤡👽",
-//                     "Flags": "🏁🚩🇦🇽🇧🇪🇧🇷🇨🇦🇨🇬🇯🇵🇺🇸",
-//                     "Cars": "🚗🚕🚙🚌🚎🏎🚓🚑🚒",
-//                     "Fruits":"🍏🍎🍐🍊🍋🍌🍉🍇🍓"]
+        let themes = ["Sports": "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓",
+                     "Halloween": "👻🎃😾☠️🦉🦅🐞🦎🐝",
+                     "Animals": "🦆🦋🐌🦀🐬🐳🦓🦍🐖",
+                     "Faces": "😇😎😀🧐😰😱🤢🤡👽",
+                     "Flags": "🏁🚩🇦🇽🇧🇪🇧🇷🇨🇦🇨🇬🇯🇵🇺🇸",
+                     "Cars": "🚗🚕🚙🚌🚎🏎🚓🚑🚒",
+                     "Fruits":"🍏🍎🍐🍊🍋🍌🍉🍇🍓"]
         let themeBackgroundColor = ["Sports": #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), "Halloween": #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), "Animals": #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1), "Faces": #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1), "Flags": #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), "Cars": #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), "Fruits": #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)]
         let themeColorOfCard = ["Sports": #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), "Halloween": #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1), "Animals": #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), "Faces": #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), "Flags": #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), "Cars": #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), "Fruits": #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)]
         let themeKeys = Array(themes.keys)
