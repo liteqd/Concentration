@@ -15,8 +15,6 @@ class ConcentrationViewController: UIViewController {
         return (cardButtons.count+1) / 2
     }
     
-    
-    
     private(set) var flipCount = 0 {
         didSet{
             updateFlipCountLabel()
@@ -25,67 +23,38 @@ class ConcentrationViewController: UIViewController {
     
     private var TCConcentrationViewController: ConcentrationThemeChooserViewController?
     
-    struct ThemeInfo {
-        var themeNameFlag = false
-        var colorButtonsFlag = false
-        var colorBackgroundFlag = false
-        var themeFlag = false
-        var themeName = "Random" {
-            didSet{ themeNameFlag = true }
-        }
-
-//                chooseTheme()
-//                updateColorOfButtons()
-        
-        var colorOfButtons = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1) {
-            didSet{ colorButtonsFlag = true }
-        }
-//                  updateColorOfButtons()
-//                updateFlipCountLabel()
-    
-        var colorOfBackground = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) {
-            didSet{ colorBackgroundFlag = true }
-        }
-        
-//        var emojiChoices = "👻🎃😾☠️🦉🦅🐞🦎🐝"
-        
-        var theme = "👻🎃😾☠️🦉🦅🐞🦎🐝" {
-            didSet{ themeFlag = true }
-        }
-    }
-    
-    var themeInfo = ThemeInfo() {
+    var themeName = "Sports" {
         didSet{
-            if (themeInfo.themeNameFlag && themeInfo.colorButtonsFlag) && (themeInfo.colorBackgroundFlag && themeInfo.themeFlag) {
-                updateColorOfButtons()
-                updateFlipCountLabel()
-                print("good to here1")
-                if  themeInfo.theme != "Random" {
-                    emoji = [Card:String]()
-                    emojiChoices = themeInfo.theme
-                    emoji = [:]
-                    updateViewFromModel()
-                }
-            }
+            chooseTheme()
         }
     }
     
-//    var themeInfo = ThemeInfo() {
-//        didSet{
-//
-//            updateColorOfButtons()
-//            updateFlipCountLabel()
-//            print("good to here1")
-//            if  themeInfo.theme != "Random" {
-//                emoji = [Card:String]()
-//                emojiChoices = themeInfo.theme
-//                emoji = [:]
-//                updateViewFromModel()
-//            }
-//        }
-//    }
+    let themes = ["Sports": "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓",
+                  "Halloween": "👻🎃😾☠️🦉🦅🐞🦎🐝",
+                  "Animals": "🦆🦋🐌🦀🐬🐳🦓🦍🐖",
+                  "Faces": "😇😎😀🧐😰😱🤢🤡👽",
+                  "Flags": "🏁🚩🇦🇽🇧🇪🇧🇷🇨🇦🇨🇬🇯🇵🇺🇸",
+                  "Cars": "🚗🚕🚙🚌🚎🏎🚓🚑🚒",
+                  "Fruits":"🍏🍎🍐🍊🍋🍌🍉🍇🍓"]
+    let themeBackgroundColor = ["Sports": #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), "Halloween": #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), "Animals": #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1), "Faces": #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1), "Flags": #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), "Cars": #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), "Fruits": #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)]
+    let themeColorOfCard = ["Sports": #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), "Halloween": #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1), "Animals": #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), "Faces": #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), "Flags": #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), "Cars": #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), "Fruits": #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)]
     
-    var emojiChoices = " "
+    var colorOfButtons = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    
+    var colorOfBackground = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+    
+    var theme = "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓" {
+        didSet{
+            emoji = [Card:String]()
+            emojiChoices = theme
+            emoji = [:]
+            updateColorOfButtons()
+            updateFlipCountLabel()
+            updateViewFromModel()
+        }
+    }
+    
+    var emojiChoices = "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓"
     
     @IBOutlet var endOfGameLabel: UILabel!
     
@@ -102,7 +71,7 @@ class ConcentrationViewController: UIViewController {
     private func updateFlipCountLabel() {
         let attributes: [NSAttributedStringKey: Any] = [
             .strokeWidth : 5.0,
-            .strokeColor : themeInfo.colorOfButtons]
+            .strokeColor : colorOfButtons]
         let attributedString = NSAttributedString (string: "Flips: \(flipCount)", attributes: attributes)
         flipCountLabel.attributedText = attributedString
 
@@ -123,18 +92,14 @@ class ConcentrationViewController: UIViewController {
         scoreLabel.text = "Score: 0"
         endOfGameLabel.text = " "
         emoji = [Card:String]()
-        emojiChoices = themeInfo.theme
+        emojiChoices = theme
         emoji = [:]
-//        chooseTheme()
-        
-        if let tc_cvc = TCConcentrationViewController, themeInfo.themeName == "Random" {
-            tc_cvc.tc_themeInfo.themeName = themeInfo.themeName
-        }
+        chooseTheme()
         updateColorOfButtons()
         for index in cardButtons.indices {
             let button = cardButtons[index]
             button.setTitle("", for: UIControlState.normal)
-            button.backgroundColor = themeInfo.colorOfButtons
+            button.backgroundColor = colorOfButtons
             game.cards[index].isFaceUp = false
             game.cards[index].isMatched = false
             game.indexOfOneAndOnlyFaceUpCard = nil
@@ -154,17 +119,18 @@ class ConcentrationViewController: UIViewController {
         scoreLabel = UILabel()
         newGameButton = UIButton()
         quitButton = UIButton()
-//        emojiChoices = "👻🎃😾☠️🦉🦅🐞🦎🐝"
+        if let tc_cvc = TCConcentrationViewController {
+            tc_cvc.tc_themes = themes
+        }
     }
     
     private func updateColorOfButtons() {
-        print("see here")
-        flipCountLabel.textColor = themeInfo.colorOfButtons
-        scoreLabel.textColor = themeInfo.colorOfButtons
-        endOfGameLabel.textColor = themeInfo.colorOfButtons
-        newGameButton.setTitleColor(themeInfo.colorOfButtons, for: .normal)
-        quitButton.setTitleColor(themeInfo.colorOfButtons, for: .normal)
-        view.backgroundColor = themeInfo.colorOfBackground
+        flipCountLabel.textColor = colorOfButtons
+        scoreLabel.textColor = colorOfButtons
+        endOfGameLabel.textColor = colorOfButtons
+        newGameButton.setTitleColor(colorOfButtons, for: .normal)
+        quitButton.setTitleColor(colorOfButtons, for: .normal)
+        view.backgroundColor = colorOfBackground
         updateViewFromModel()
     }
     
@@ -179,10 +145,10 @@ class ConcentrationViewController: UIViewController {
                 let card = game.cards[index]
                 if card.isFaceUp {
                     button.setTitle(emoji(for: card), for: UIControlState.normal)
-                    button.backgroundColor = themeInfo.colorOfButtons
+                    button.backgroundColor = colorOfButtons
                 }else{
                     button.setTitle("", for: UIControlState.normal)
-                    button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : themeInfo.colorOfButtons
+                    button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : colorOfButtons
                 }
             }
         }
@@ -190,44 +156,8 @@ class ConcentrationViewController: UIViewController {
     
     private var emoji = [Card:String]()
     
-//    var themes = [String: String]()
-    
-//    var theme: String? {
-//        didSet{
-//            if theme != "Random" {
-//                emoji = [Card:String]()
-//                themeInfo.emojiChoices = theme ?? ""
-//                emoji = [:]
-//                updateViewFromModel()
-//            }
-//        }
-//    }
-    
-    
-        
-//    private func chooseTheme () {
-//        let themeBackgroundColor = ["Sports": #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), "Halloween": #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), "Animals": #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1), "Faces": #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1), "Flags": #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), "Cars": #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), "Fruits": #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)]
-//        let themeColorOfCard = ["Sports": #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), "Halloween": #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1), "Animals": #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), "Faces": #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), "Flags": #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), "Cars": #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), "Fruits": #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)]
-//        let themeKeys = Array(themes.keys)
-//        print("\(themeInfo.themeName)")
-//        if themeInfo.themeName == "Random" {
-//            let themeIndex = Int(arc4random_uniform(UInt32(themeKeys.count)))
-//            themeInfo.emojiChoices = Array(themes.values)[themeIndex]
-//            themeInfo.colorOfBackground = Array(themeBackgroundColor.values)[themeIndex]
-//            themeInfo.colorOfButtons = Array(themeColorOfCard.values)[themeIndex]
-//        } else {
-//            print("\(themeInfo.themeName)")
-//
-//            themeInfo.emojiChoices = themes[themeInfo.themeName]!
-//            print("\(themeInfo.emojiChoices)")
-//            themeInfo.colorOfBackground = themeBackgroundColor[themeInfo.themeName]!
-//            themeInfo.colorOfButtons = themeColorOfCard[themeInfo.themeName]!
-//
-//        }
-//
-//    }
-    
     private func emoji(for card: Card) -> String {
+        print("\(emojiChoices)")
         if emoji[card] == nil, emojiChoices.count > 0 {
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
             emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
@@ -238,6 +168,23 @@ class ConcentrationViewController: UIViewController {
 //        }else{
 //            return "?"
 //        }
+    }
+    
+    private func chooseTheme () {
+        let themeKeys = Array(themes.keys)
+        if themeName == "Random" {
+            print("\(themeKeys.count)")
+            let themeIndex = Int(arc4random_uniform(UInt32(themeKeys.count)))
+            colorOfBackground = Array(themeBackgroundColor.values)[themeIndex]
+            colorOfButtons = Array(themeColorOfCard.values)[themeIndex]
+            theme = Array(themes.values)[themeIndex]
+        } else {
+            colorOfBackground = themeBackgroundColor[themeName]!
+            colorOfButtons = themeColorOfCard[themeName]!
+            theme = themes[themeName]!
+            
+        }
+        
     }
 }
 
