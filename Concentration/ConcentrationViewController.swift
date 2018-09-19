@@ -12,7 +12,7 @@ class ConcentrationViewController: UIViewController {
     private lazy var game: Concentration = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
     var numberOfPairsOfCards: Int {
-        return (cardButtons.count+1) / 2
+        return Int((cardButtons.count + 1 ) / 2)
     }
     
     private(set) var flipCount = 0 {
@@ -29,13 +29,13 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
-    let themes = ["Sports": "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓",
-                  "Halloween": "👻🎃😾☠️🦉🦅🐞🦎🐝",
-                  "Animals": "🦆🦋🐌🦀🐬🐳🦓🦍🐖",
-                  "Faces": "😇😎😀🧐😰😱🤢🤡👽",
-                  "Flags": "🏁🚩🇦🇽🇧🇪🇧🇷🇨🇦🇨🇬🇯🇵🇺🇸",
-                  "Cars": "🚗🚕🚙🚌🚎🏎🚓🚑🚒",
-                  "Fruits":"🍏🍎🍐🍊🍋🍌🍉🍇🍓"]
+    let themes = ["Sports": "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓⛸",
+                  "Halloween": "👻🎃😾☠️🦉🦅🐞🦎🐝👺",
+                  "Animals": "🦆🦋🐌🦀🐬🐳🦓🦍🐖🐰",
+                  "Faces": "😇😎😀🧐😰😱🤢🤡👽👹",
+                  "Flags": "🏁🚩🇦🇽🇧🇪🇧🇷🇨🇦🇨🇬🇯🇵🇺🇸🇯🇪",
+                  "Cars": "🚗🚕🚙🚌🚎🏎🚓🚑🚒🚠",
+                  "Fruits":"🍏🍎🍐🍊🍋🍌🍉🍇🍓🍒"]
     let themeBackgroundColor = ["Sports": #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), "Halloween": #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), "Animals": #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1), "Faces": #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1), "Flags": #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), "Cars": #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), "Fruits": #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)]
     let themeColorOfCard = ["Sports": #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), "Halloween": #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1), "Animals": #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), "Faces": #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), "Flags": #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), "Cars": #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), "Fruits": #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)]
     
@@ -43,7 +43,7 @@ class ConcentrationViewController: UIViewController {
     
     var colorOfBackground = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
     
-    var theme = "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓" {
+    var theme = "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓⛸" {
         didSet{
             emoji = [Card:String]()
             emojiChoices = theme
@@ -54,7 +54,7 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
-    var emojiChoices = "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓"
+    var emojiChoices = "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓⛸"
     
     @IBOutlet var endOfGameLabel: UILabel!
     
@@ -68,13 +68,24 @@ class ConcentrationViewController: UIViewController {
     
     @IBOutlet var quitButton: UIButton!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        endOfGameLabel = UILabel()
+        flipCountLabel = UILabel()
+        scoreLabel = UILabel()
+        newGameButton = UIButton()
+        quitButton = UIButton()
+        if let tc_cvc = TCConcentrationViewController {
+            tc_cvc.tc_themes = themes
+        }
+    }
+    
     private func updateFlipCountLabel() {
         let attributes: [NSAttributedStringKey: Any] = [
             .strokeWidth : 5.0,
             .strokeColor : colorOfButtons]
         let attributedString = NSAttributedString (string: "Flips: \(flipCount)", attributes: attributes)
         flipCountLabel.attributedText = attributedString
-
     }
     
     @IBAction private func touchCard(_ sender: UIButton) {
@@ -112,18 +123,6 @@ class ConcentrationViewController: UIViewController {
         exit(0)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        endOfGameLabel = UILabel()
-        flipCountLabel = UILabel()
-        scoreLabel = UILabel()
-        newGameButton = UIButton()
-        quitButton = UIButton()
-        if let tc_cvc = TCConcentrationViewController {
-            tc_cvc.tc_themes = themes
-        }
-    }
-    
     private func updateColorOfButtons() {
         flipCountLabel.textColor = colorOfButtons
         scoreLabel.textColor = colorOfButtons
@@ -157,7 +156,6 @@ class ConcentrationViewController: UIViewController {
     private var emoji = [Card:String]()
     
     private func emoji(for card: Card) -> String {
-        print("\(emojiChoices)")
         if emoji[card] == nil, emojiChoices.count > 0 {
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
             emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
@@ -173,7 +171,6 @@ class ConcentrationViewController: UIViewController {
     private func chooseTheme () {
         let themeKeys = Array(themes.keys)
         if themeName == "Random" {
-            print("\(themeKeys.count)")
             let themeIndex = Int(arc4random_uniform(UInt32(themeKeys.count)))
             colorOfBackground = Array(themeBackgroundColor.values)[themeIndex]
             colorOfButtons = Array(themeColorOfCard.values)[themeIndex]

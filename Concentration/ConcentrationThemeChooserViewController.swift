@@ -42,7 +42,6 @@ class ConcentrationThemeChooserViewController: UIViewController, UISplitViewCont
     
     @IBAction func changeTheme(_ sender: Any) {
         if let themeName = ( sender as? UIButton)?.currentTitle {
-            print("\(themeName)")
             tc_themeName = themeName
             if !sendTheme(with: themeName) {
                 performSegue(withIdentifier: "Choose Theme", sender: sender)
