@@ -30,6 +30,7 @@ class ConcentrationViewController: UIViewController {
     var themeName = "Sports" {
         didSet{
             chooseTheme()
+            updateColorOfButtons()
         }
     }
     
