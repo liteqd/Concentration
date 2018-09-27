@@ -12,7 +12,7 @@ class ConcentrationViewController: UIViewController {
     private lazy var game: Concentration = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
     var numberOfPairsOfCards: Int {
-        return Int((cardButtons.count + 1 ) / 2)
+        return Int((visibleCardButtons.count + 1 ) / 2)
     }
     
     private(set) var flipCount = 0 {
@@ -22,6 +22,10 @@ class ConcentrationViewController: UIViewController {
     }
     
     private var TCConcentrationViewController: ConcentrationThemeChooserViewController?
+    
+    private var visibleCardButtons: [UIButton]! {
+        return cardButtons?.filter { !$0.superview!.isHidden }
+    }
     
     var themeName = "Sports" {
         didSet{
@@ -90,7 +94,7 @@ class ConcentrationViewController: UIViewController {
     
     @IBAction private func touchCard(_ sender: UIButton) {
         flipCount += 1
-        if let cardNumber = cardButtons.index(of: sender){
+        if let cardNumber = visibleCardButtons.index(of: sender){
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
        }
@@ -107,8 +111,8 @@ class ConcentrationViewController: UIViewController {
         emoji = [:]
         chooseTheme()
         updateColorOfButtons()
-        for index in cardButtons.indices {
-            let button = cardButtons[index]
+        for index in visibleCardButtons.indices {
+            let button = visibleCardButtons[index]
             button.setTitle("", for: UIControlState.normal)
             button.backgroundColor = colorOfButtons
             game.cards[index].isFaceUp = false
@@ -123,6 +127,13 @@ class ConcentrationViewController: UIViewController {
         exit(0)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateViewFromModel()
+    }
+    
+    
+    
     private func updateColorOfButtons() {
         flipCountLabel.textColor = colorOfButtons
         scoreLabel.textColor = colorOfButtons
@@ -134,13 +145,13 @@ class ConcentrationViewController: UIViewController {
     }
     
     private func updateViewFromModel(){
-        if cardButtons != nil {
+        if visibleCardButtons != nil {
             scoreLabel.text = "Scores: \(game.score)"
             if game.numberOfMatchedPairs == numberOfPairsOfCards {
                 endOfGameLabel.text = "Congrat, you did it!"
             }
-            for index in cardButtons.indices {
-                let button = cardButtons[index]
+            for index in visibleCardButtons.indices {
+                let button = visibleCardButtons[index]
                 let card = game.cards[index]
                 if card.isFaceUp {
                     button.setTitle(emoji(for: card), for: UIControlState.normal)
