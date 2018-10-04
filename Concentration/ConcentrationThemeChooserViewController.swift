@@ -12,13 +12,14 @@ class ConcentrationThemeChooserViewController: UIViewController, UISplitViewCont
 
     var tc_themeName = "Sports"
     
-    var tc_themes = [ String: String ]() {
-        didSet{
-            if !sendTheme(with: tc_themeName) {
-                print("Cannot send theme back to ConcentrationViewController")
-            }
-        }
-    }
+    var tc_themes = [ String: String ]()
+//    {
+//        didSet{
+//            if !sendTheme(with: tc_themeName) {
+//                print("Cannot send theme back to ConcentrationViewController")
+//            }
+//        }
+//    }
     
     private var splitViewDetailConcentrationViewController: ConcentrationViewController? {
         return splitViewController?.viewControllers.last as? ConcentrationViewController

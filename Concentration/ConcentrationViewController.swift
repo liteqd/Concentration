@@ -48,14 +48,13 @@ class ConcentrationViewController: UIViewController {
     
     var colorOfBackground = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
     
-    var theme = "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓⛸" {
+    var theme = " " {
         didSet{
-            emoji = [Card:String]()
+//            emoji = [Card:String]()
             emojiChoices = theme
-            emoji = [:]
-            updateColorOfButtons()
+//            emoji = [:]
             updateFlipCountLabel()
-            updateViewFromModel()
+            updateColorOfButtons()
         }
     }
     
@@ -107,10 +106,13 @@ class ConcentrationViewController: UIViewController {
         game.numberOfMatchedPairs = 0
         scoreLabel.text = "Score: 0"
         endOfGameLabel.text = " "
-        emoji = [Card:String]()
-        emojiChoices = theme
-        emoji = [:]
-        chooseTheme()
+        if themeName == "Random" {
+            chooseTheme()
+            updateColorOfButtons()
+        } else { emojiChoices = theme }
+//        emoji = [Card:String]()
+//        emojiChoices = theme
+//        emoji = [:]
         updateColorOfButtons()
         for index in visibleCardButtons.indices {
             let button = visibleCardButtons[index]
@@ -155,6 +157,7 @@ class ConcentrationViewController: UIViewController {
                 let button = visibleCardButtons[index]
                 let card = game.cards[index]
                 if card.isFaceUp {
+                    print("entered here")
                     button.setTitle(emoji(for: card), for: UIControlState.normal)
                     button.backgroundColor = colorOfButtons
                 }else{
@@ -168,6 +171,8 @@ class ConcentrationViewController: UIViewController {
     private var emoji = [Card:String]()
     
     private func emoji(for card: Card) -> String {
+        print("\(emojiChoices.count)")
+        
         if emoji[card] == nil, emojiChoices.count > 0 {
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
             emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
