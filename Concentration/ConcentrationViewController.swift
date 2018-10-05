@@ -11,9 +11,7 @@ import UIKit
 class ConcentrationViewController: UIViewController {
     private lazy var game: Concentration = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
-    var numberOfPairsOfCards: Int {
-        return Int((visibleCardButtons.count + 1 ) / 2)
-    }
+    var numberOfPairsOfCards = Int()
     
     private(set) var flipCount = 0 {
         didSet{
@@ -23,10 +21,8 @@ class ConcentrationViewController: UIViewController {
     
     private var TCConcentrationViewController: ConcentrationThemeChooserViewController?
     
-    private var visibleCardButtons: [UIButton]! {
-        return cardButtons?.filter { !$0.superview!.isHidden }
-    }
-    
+    private var visibleCardButtons = [UIButton]()
+
     var themeName = "Sports" {
         didSet{
             chooseTheme()
@@ -50,9 +46,9 @@ class ConcentrationViewController: UIViewController {
     
     var theme = " " {
         didSet{
-//            emoji = [Card:String]()
+            emoji = [Card:String]()
             emojiChoices = theme
-//            emoji = [:]
+            emoji = [:]
             updateFlipCountLabel()
             updateColorOfButtons()
         }
@@ -110,9 +106,9 @@ class ConcentrationViewController: UIViewController {
             chooseTheme()
             updateColorOfButtons()
         } else { emojiChoices = theme }
-//        emoji = [Card:String]()
-//        emojiChoices = theme
-//        emoji = [:]
+        emoji = [Card:String]()
+        emojiChoices = theme
+        emoji = [:]
         updateColorOfButtons()
         for index in visibleCardButtons.indices {
             let button = visibleCardButtons[index]
@@ -132,10 +128,10 @@ class ConcentrationViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        visibleCardButtons = (cardButtons?.filter { !$0.superview!.isHidden })!
+        numberOfPairsOfCards = Int((visibleCardButtons.count+1) / 2)
         updateViewFromModel()
     }
-    
-    
     
     private func updateColorOfButtons() {
         flipCountLabel.textColor = colorOfButtons
@@ -148,7 +144,7 @@ class ConcentrationViewController: UIViewController {
     }
     
     private func updateViewFromModel(){
-        if visibleCardButtons != nil {
+        if visibleCardButtons.count > 0 {
             scoreLabel.text = "Scores: \(game.score)"
             if game.numberOfMatchedPairs == numberOfPairsOfCards {
                 endOfGameLabel.text = "Congrat, you did it!"
@@ -157,7 +153,6 @@ class ConcentrationViewController: UIViewController {
                 let button = visibleCardButtons[index]
                 let card = game.cards[index]
                 if card.isFaceUp {
-                    print("entered here")
                     button.setTitle(emoji(for: card), for: UIControlState.normal)
                     button.backgroundColor = colorOfButtons
                 }else{
@@ -171,8 +166,6 @@ class ConcentrationViewController: UIViewController {
     private var emoji = [Card:String]()
     
     private func emoji(for card: Card) -> String {
-        print("\(emojiChoices.count)")
-        
         if emoji[card] == nil, emojiChoices.count > 0 {
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
             emoji[card] = String(emojiChoices.remove(at: randomStringIndex))

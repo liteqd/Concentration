@@ -90,9 +90,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="8Op-Xh-ZSP" firstAttribute="centerX" secondItem="JWE-5Z-hba" secondAttribute="centerX" id="7ds-gU-ERO"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
