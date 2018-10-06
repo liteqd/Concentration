@@ -15,7 +15,7 @@ class ConcentrationViewController: UIViewController {
     
     private(set) var flipCount = 0 {
         didSet{
-            updateFlipCountLabel()
+            updateLabel(for: "Attempt")
         }
     }
     
@@ -49,7 +49,6 @@ class ConcentrationViewController: UIViewController {
             emoji = [Card:String]()
             emojiChoices = theme
             emoji = [:]
-            updateFlipCountLabel()
             updateColorOfButtons()
         }
     }
@@ -80,12 +79,20 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
-    private func updateFlipCountLabel() {
+    private func updateLabel(for label: String) {
         let attributes: [NSAttributedStringKey: Any] = [
-            .strokeWidth : 5.0,
+            .strokeWidth : -5.0,
             .strokeColor : colorOfButtons]
-        let attributedString = NSAttributedString (string: "Flips: \(flipCount)", attributes: attributes)
-        flipCountLabel.attributedText = attributedString
+        switch label {
+        case "Attempt":
+                let attributedString = NSAttributedString (string: "Attempts: \(Int(flipCount/2))", attributes: attributes)
+                flipCountLabel.attributedText = attributedString
+        case "Point":
+                let attributedString = NSAttributedString (string: "Points: \(game.score)", attributes: attributes)
+                scoreLabel.attributedText = attributedString
+        default :
+            print("Have to provide 'Attempt' or 'Point'")
+        }
     }
     
     @IBAction private func touchCard(_ sender: UIButton) {
@@ -100,7 +107,8 @@ class ConcentrationViewController: UIViewController {
         flipCount = 0
         game.score = 0
         game.numberOfMatchedPairs = 0
-        scoreLabel.text = "Score: 0"
+        updateLabel(for: "Point")
+        updateLabel(for: "Attempt")
         endOfGameLabel.text = " "
         if themeName == "Random" {
             chooseTheme()
@@ -130,6 +138,7 @@ class ConcentrationViewController: UIViewController {
         super.viewDidLayoutSubviews()
         visibleCardButtons = (cardButtons?.filter { !$0.superview!.isHidden })!
         numberOfPairsOfCards = Int((visibleCardButtons.count+1) / 2)
+        updateLabel(for: "Attempt")
         updateViewFromModel()
     }
     
@@ -145,10 +154,13 @@ class ConcentrationViewController: UIViewController {
     
     private func updateViewFromModel(){
         if visibleCardButtons.count > 0 {
-            scoreLabel.text = "Scores: \(game.score)"
+            updateLabel(for: "Point")
+//            scoreLabel.text = "Points: \(game.score)"
             if game.numberOfMatchedPairs == numberOfPairsOfCards {
                 endOfGameLabel.text = "Congrat, you did it!"
             }
+            let height = visibleCardButtons[0].bounds.size.height
+            let width = visibleCardButtons[0].bounds.size.width
             for index in visibleCardButtons.indices {
                 let button = visibleCardButtons[index]
                 let card = game.cards[index]
@@ -159,6 +171,8 @@ class ConcentrationViewController: UIViewController {
                     button.setTitle("", for: UIControlState.normal)
                     button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : colorOfButtons
                 }
+                button.layer.cornerRadius = (height / 4 + width / 4) / 2
+                button.clipsToBounds = true
             }
         }
     }
