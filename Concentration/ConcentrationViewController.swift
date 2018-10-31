@@ -47,6 +47,7 @@ class ConcentrationViewController: UIViewController {
     
     private var matchedArray = [false, false]
     private var matchedButtonsArray = [UIButton(), UIButton()]
+    private var matchedCardArray = [Card(), Card()]
     
     var themeName = "Sports" {
         didSet{
@@ -78,6 +79,8 @@ class ConcentrationViewController: UIViewController {
     }
     
     var emojiChoices = "⚽️🏀🏈⚾️🎾🏐🏉🎱🏓⛸"
+    
+    var emoji = [Card:String]()
     
     @IBOutlet var endOfGameLabel: UILabel!
     
@@ -131,26 +134,34 @@ class ConcentrationViewController: UIViewController {
         flipCount = 0
         game.score = 0
         game.numberOfMatchedPairs = 0
+        
         updateLabel(for: "Point")
         updateLabel(for: "Attempt")
+        
         endOfGameLabel.text = " "
+        
         if themeName == "Random" {
             chooseTheme()
-            updateColorOfButtons()
-        } else { emojiChoices = theme }
-        emoji = [Card:String]()
-        emojiChoices = theme
-        emoji = [:]
-        updateColorOfButtons()
+//            updateColorOfButtons()
+        }
+//        else { emojiChoices = theme }
+        
+        
         vibratingNewGameButtonTimer = nil
+        
         for index in visibleCardButtons.indices {
             let button = visibleCardButtons[index]
             button.setTitle("", for: UIControl.State.normal)
             button.backgroundColor = colorOfButtons
             game.cards[index].isFaceUp = false
             game.cards[index].isMatched = false
+            game.cards[index].hadBeenFacedUp = false
             game.indexOfOneAndOnlyFaceUpCard = nil
         }
+        emoji = [Card:String]()
+        emojiChoices = theme
+        emoji = [:]
+        updateColorOfButtons()
         game.shuffleCards()
         game.startTime = Date()
     }
@@ -189,6 +200,9 @@ class ConcentrationViewController: UIViewController {
     
     private func updateViewFromModel() {
         if visibleCardButtons.count > 0 {
+            var savedButton: UIButton?
+            var savedEmojiAppearance: String?
+            var savedCard: Card?
             matchedArray = [false, false]
             updateLabel(for: "Point")
             for index in visibleCardButtons.indices {
@@ -199,18 +213,20 @@ class ConcentrationViewController: UIViewController {
                         if matchedArray[0] == false {
                             matchedArray[0] = true
                             matchedButtonsArray[0] = button
+                            matchedCardArray[0] = card
                         } else {
                             matchedArray[1] = true
                             matchedButtonsArray[1] = button
+                            matchedCardArray[1] = card
                         }
                     }
-                    UIView.transition(with: button, duration: 0.6,
-                                  options: [.transitionFlipFromRight],
-                                  animations: {button.setTitle(self.emoji(for: card), for: UIControl.State.normal)
-                                               button.backgroundColor = self.colorOfButtons
-                                              }
-                    )
-                }else{
+                    let emojiAppearance = self.emoji(for: card)
+                    savedButton = button
+                    savedEmojiAppearance = emojiAppearance
+                    savedCard = card
+                    let turnCardColor = card.isMatched ? colorOfBackground : colorOfButtons
+                    turnCardAnimate(with: button, withEmoji: emojiAppearance, withColor: turnCardColor)
+                } else {
                     button.setTitle("", for: UIControl.State.normal)
                     button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : colorOfButtons
                 }
@@ -219,8 +235,10 @@ class ConcentrationViewController: UIViewController {
             }
             
             if matchedArray[0] == true, matchedArray[1] == true {
-                matchedDance(the: matchedButtonsArray[0], forDelay: 0, withfillMode: CAMediaTimingFillMode.both.rawValue, andRemovedOnCompletion: false)
-                matchedDance(the: matchedButtonsArray[1], forDelay: 0, withfillMode: CAMediaTimingFillMode.both.rawValue, andRemovedOnCompletion: false)
+                turnCardAnimate(with: matchedButtonsArray[0], withEmoji: emoji(for: matchedCardArray[0]), withColor: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0))
+                matchedDance(the: matchedButtonsArray[0], forDelay: 0, withfillMode: CAMediaTimingFillMode.both.rawValue, andRemovedOnCompletion: true)
+                turnCardAnimate(with: matchedButtonsArray[1], withEmoji: emoji(for: matchedCardArray[1]), withColor: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0))
+                matchedDance(the: matchedButtonsArray[1], forDelay: 0, withfillMode: CAMediaTimingFillMode.both.rawValue, andRemovedOnCompletion: true)
             }
             
             if game.numberOfMatchedPairs == numberOfPairsOfCards {
@@ -228,16 +246,29 @@ class ConcentrationViewController: UIViewController {
                 vibratingNewGameButtonTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { (Timer) in self.vibrate(the: self.vibratingNewGameButton) }
                 vibratingNewGameButtonTimer!.tolerance = 1.0
                 turnBackCardsTimer = nil
-            } else {
-            turnBackCardsTimer = nil
-            turnBackCardsTimer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { (Timer) in self.updateViewFromModel()
+                turnCardAnimate(with: matchedButtonsArray[0], withEmoji: "", withColor: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0))
+                turnCardAnimate(with: matchedButtonsArray[1], withEmoji: "", withColor: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0))
+            }
+            else {
+                turnBackCardsTimer = nil
+                if savedButton != nil, savedEmojiAppearance != nil {
+                    let turnCardColor = savedCard!.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : colorOfButtons
+                    turnBackCardsTimer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { (Timer) in self.turnCardAnimate(with: savedButton!, withEmoji: savedEmojiAppearance!, withColor: turnCardColor)
+                    }
                 self.turnBackCardsTimer!.tolerance = 1.0
                 }
             }
         }
     }
     
-    var emoji = [Card:String]()
+    func turnCardAnimate(with button: UIButton, withEmoji emojiAppearance: String, withColor color: UIColor) {
+        UIView.transition(with: button, duration: 0.6,
+                          options: [.transitionFlipFromRight],
+                          animations: {button.setTitle(emojiAppearance, for: UIControl.State.normal)
+                            button.backgroundColor = color
+                                        }
+                            )
+    }
     
     func emoji(for card: Card) -> String {
         if emoji[card] == nil, emojiChoices.count > 0 {
@@ -281,6 +312,7 @@ class ConcentrationViewController: UIViewController {
     @objc private func matchedDance(the sender: Any, forDelay beginTime: CFTimeInterval, withfillMode fillMode: String, andRemovedOnCompletion removedOnCompletion: Bool) {
         let uiControl = sender as? UIControl
         let buttonLayer = uiControl!.layer
+        buttonLayer.zPosition = 1
         
         let anticOverTiming = CAMediaTimingFunction(controlPoints: 0.42, -0.30, 0.58, 1.30)
         
@@ -292,6 +324,7 @@ class ConcentrationViewController: UIViewController {
         template1OpacityAnimation.beginTime = beginTime
         template1OpacityAnimation.fillMode = CAMediaTimingFillMode(rawValue: fillMode)
         template1OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+//        uiControl!.superview?.bringSubviewToFront(uiControl!)
         buttonLayer.add(template1OpacityAnimation, forKey:"stretches_Opacity")
         
         let template1ScaleXAnimation = CAKeyframeAnimation(keyPath: "transform.scale.x")
@@ -302,6 +335,7 @@ class ConcentrationViewController: UIViewController {
         template1ScaleXAnimation.beginTime = beginTime
         template1ScaleXAnimation.fillMode = CAMediaTimingFillMode(rawValue: fillMode)
         template1ScaleXAnimation.isRemovedOnCompletion = removedOnCompletion
+//        uiControl!.superview?.bringSubviewToFront(uiControl!)
         buttonLayer.add(template1ScaleXAnimation, forKey:"stretches_ScaleX")
         
         let template1ScaleYAnimation = CAKeyframeAnimation(keyPath: "transform.scale.y")
@@ -312,6 +346,7 @@ class ConcentrationViewController: UIViewController {
         template1ScaleYAnimation.beginTime = beginTime
         template1ScaleYAnimation.fillMode = CAMediaTimingFillMode(rawValue: fillMode)
         template1ScaleYAnimation.isRemovedOnCompletion = removedOnCompletion
+        uiControl!.superview?.bringSubviewToFront(uiControl!)
         buttonLayer.add(template1ScaleYAnimation, forKey:"stretches_ScaleY")
     }
 }
