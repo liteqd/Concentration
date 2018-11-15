@@ -1,0 +1,497 @@
+{
+  "name" : "Finale fireworks",
+  "keyall_timeline" : null,
+  "element_timelines" : {
+    "BEEEE5D1-9721-40CE-8AE0-CE7FF6ED3E76" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 2100,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "13BD11F4-2431-4637-A113-96DECEEF68B0"
+          },
+          {
+            "time_in_ms" : 2650,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "1D757884-82A9-4B6F-B280-E352814A4424"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "DBE4486F-259D-4DBA-9B2D-AF6E1B40275C" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 1650,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "EEE791D2-EF2A-4579-BC21-852E026C8D76"
+          },
+          {
+            "time_in_ms" : 2150,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "4D70E30B-0EA2-4C16-8F24-724E01032401"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "FF107387-360E-4189-8D9E-1F7936014BC9" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 1500,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "6CFF2C6A-B700-48A9-B1D0-6B96676D3AA8"
+          },
+          {
+            "time_in_ms" : 2000,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "37F2041F-07CB-4E28-9796-FEC3D87C643D"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "B46E2D97-8649-4011-ADB9-56995D45AFD0" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 2550,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "4EFDCD95-6E2D-49F0-92D6-B2F69EA1DCBA"
+          },
+          {
+            "time_in_ms" : 3100,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "CFD65649-6513-4DB7-A26E-9A55D172D4DC"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "57B08C6C-5DB8-471B-8D98-A3D2084C6D86" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 2250,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "9C28508F-5CA6-4538-B3B9-C70904D7F5C9"
+          },
+          {
+            "time_in_ms" : 2800,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "EC5829E7-B9A9-4A12-93BD-774DAD46ACEC"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "033A6372-27A7-4C0B-A8B6-C74636B6083E" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 0,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "9A682700-7AFA-4825-9CA0-52F8CD0990FA"
+          },
+          {
+            "time_in_ms" : 50,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "8710373F-FC16-4E2D-A99E-5FEEC0201A8B"
+          },
+          {
+            "time_in_ms" : 4200,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "7875EBA7-3D46-4FF6-A8F7-7E7E343C280A"
+          },
+          {
+            "time_in_ms" : 4900,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "9CE0D824-ADD3-4A5E-8FC8-E12C0EE3C5F7"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "5410C9D3-C0A0-400E-BBF5-B0976314FDD0" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 2400,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "8AECC326-47DF-4D09-89B6-2D85A72020CD"
+          },
+          {
+            "time_in_ms" : 2950,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "F013C6C8-1C98-481E-BB00-10472B52768D"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "421AC650-EA43-40DB-8803-328DCF989F88" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 1801,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "AEB18B8D-BBF1-4CBE-A1A4-77C8B68F5255"
+          },
+          {
+            "time_in_ms" : 2300,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "B00A5FA2-4A1D-4A2C-A822-2F90BFD1BD12"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "94AD452C-14BF-4177-8708-AA89CDCA075C" : {
+      "x_translation" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 0,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "459B71CF-E843-4E6A-B56B-8D7FCFD0D4C5"
+          },
+          {
+            "time_in_ms" : 3550,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "AFED6BCB-5197-407E-A532-6D01578DB24C"
+          },
+          {
+            "time_in_ms" : 4100,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0.98080883390935014,
+            "recorded_end" : false,
+            "identifier" : "773D8217-3708-4FBF-8195-D7E67234CFC6"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "x_translation"
+      },
+      "y_translation" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 0,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 90,
+            "recorded_end" : false,
+            "identifier" : "7083408A-543A-45CB-A72D-4A6DE9D5CE17"
+          },
+          {
+            "time_in_ms" : 3550,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "C8D26B65-BC7C-4F71-98B2-65C1D191DE1F"
+          },
+          {
+            "time_in_ms" : 4100,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : -326.52671319801448,
+            "recorded_end" : false,
+            "identifier" : "5EEAA179-1288-4A1B-B1BA-E72A6A0F0A5E"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "y_translation"
+      },
+      "y_scale" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 3550,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "7BEAF609-DC67-4A4B-9C06-9E6867EC9CD1"
+          },
+          {
+            "time_in_ms" : 4100,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0.60060059286036604,
+            "recorded_end" : false,
+            "identifier" : "1C145EAC-4358-484F-B291-A76C8113C69D"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "y_scale"
+      },
+      "x_scale" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 3550,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "71D02CBD-24BC-4085-B401-DBB63BB06C47"
+          },
+          {
+            "time_in_ms" : 4100,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0.60060059286036604,
+            "recorded_end" : false,
+            "identifier" : "0F82D0F5-EF81-4009-B890-E0BB7F0652C8"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "x_scale"
+      },
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 3004,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "41A2C01B-7519-4B33-9080-E6A44281F288"
+          },
+          {
+            "time_in_ms" : 3550,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "28A3522A-C273-45C1-BB91-248BBD66CF27"
+          },
+          {
+            "time_in_ms" : 4100,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0.010871167294681072,
+            "recorded_end" : false,
+            "identifier" : "230F577F-EDA9-4A6E-AEB7-A6249B9D4048"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "FA1ABEC3-2915-4326-B610-F58055A6C588" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 2850,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "41BA6D93-DEEC-4C1E-BD13-91E3AF54D72A"
+          },
+          {
+            "time_in_ms" : 3400,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "82CBE142-1768-4839-A927-6870BA2934A1"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "823D0B86-C3C3-4DFB-AACF-EE7AC38B10E7" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 2700,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "6CA1BB4A-9A38-491E-8039-66B95DE8FC3D"
+          },
+          {
+            "time_in_ms" : 3250,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "91629AFD-C4AF-44A3-BEBA-8EC2D7150357"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    },
+    "5E926A4D-634D-4DA8-99E5-A4AA91305576" : {
+      "opacity" : {
+        "keyframes" : [
+          {
+            "time_in_ms" : 1950,
+            "easing_mode" : "linear",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 1,
+            "recorded_end" : false,
+            "identifier" : "9B5D909B-9DB9-403B-AD90-9FDA412518F4"
+          },
+          {
+            "time_in_ms" : 2450,
+            "easing_mode" : "ease_in_out",
+            "recorded" : false,
+            "recorded_start" : false,
+            "value_type" : "float",
+            "float_value" : 0,
+            "recorded_end" : false,
+            "identifier" : "80FEEA6B-EC67-4D06-93A9-D306B3E720ED"
+          }
+        ],
+        "repeat_behavior" : "never",
+        "property_type" : "opacity"
+      }
+    }
+  },
+  "identifier" : "7159B608-27A2-47E7-9031-ACAA73C51415"
+}

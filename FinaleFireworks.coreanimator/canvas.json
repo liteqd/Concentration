@@ -1,0 +1,463 @@
+{
+  "customClassType" : "",
+  "name" : "Canvas",
+  "mask" : null,
+  "anchorPoint" : {
+    "y" : 0.5,
+    "x" : 0.5
+  },
+  "size" : {
+    "height" : 1500,
+    "width" : 1500
+  },
+  "elementType" : "canvas",
+  "subelements" : [
+    {
+      "customClassType" : "",
+      "name" : "Text Element 2",
+      "mask" : null,
+      "anchorPoint" : {
+        "y" : 0.5,
+        "x" : 0.5
+      },
+      "size" : {
+        "height" : 735,
+        "width" : 2667.607421875
+      },
+      "elementType" : "text",
+      "subelements" : [
+
+      ],
+      "identifier" : "033A6372-27A7-4C0B-A8B6-C74636B6083E",
+      "position" : {
+        "y" : 750,
+        "x" : 751.97209727080553
+      },
+      "rotation" : 0,
+      "classType" : "Default",
+      "fontSize" : 220,
+      "textForegroundColor" : {
+        "green" : 0,
+        "alpha" : 1,
+        "red" : 0,
+        "blue" : 0
+      },
+      "scale" : {
+        "y" : 0.33300000000000002,
+        "x" : 0.31015192199192121
+      },
+      "opacity" : 1,
+      "alignmentMode" : "center",
+      "isHidden" : false,
+      "isLocked" : false,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "string" : "Press “New game” to restart\n\nPress “Quit” to exit"
+    },
+    {
+      "customClassType" : "",
+      "name" : "Text Element",
+      "mask" : null,
+      "anchorPoint" : {
+        "y" : 0.5,
+        "x" : 0.5
+      },
+      "size" : {
+        "height" : 420,
+        "width" : 2466.228515625
+      },
+      "elementType" : "text",
+      "subelements" : [
+
+      ],
+      "identifier" : "94AD452C-14BF-4177-8708-AA89CDCA075C",
+      "position" : {
+        "y" : 750,
+        "x" : 750
+      },
+      "rotation" : 0,
+      "classType" : "Default",
+      "fontSize" : 378,
+      "textForegroundColor" : {
+        "green" : 0,
+        "alpha" : 1,
+        "red" : 0,
+        "blue" : 0
+      },
+      "scale" : {
+        "y" : 0.33300000000000002,
+        "x" : 0.33300000000000002
+      },
+      "opacity" : 1,
+      "alignmentMode" : "center",
+      "isHidden" : false,
+      "isLocked" : false,
+      "font" : "TimesNewRomanPSMT",
+      "string" : "Excellent game!"
+    },
+    {
+      "customClassType" : "",
+      "name" : "Finale fireworks",
+      "mask" : null,
+      "anchorPoint" : {
+        "y" : 0.5,
+        "x" : 0.5
+      },
+      "size" : {
+        "height" : 1118,
+        "width" : 936
+      },
+      "elementType" : "group",
+      "subelements" : [
+        {
+          "customClassType" : "",
+          "name" : "ff_screen10",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "AD9E0AE6-8BC5-4147-9B82-E28EC3A5195B",
+          "size" : {
+            "height" : 1018,
+            "width" : 820
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "FA1ABEC3-2915-4326-B610-F58055A6C588",
+          "position" : {
+            "y" : 560.51493895568592,
+            "x" : 468
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1.0577770531919708,
+            "x" : 1
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        },
+        {
+          "customClassType" : "",
+          "name" : "ff_screen9",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "12191CB9-0113-452F-A7A1-5A7E2F332A82",
+          "size" : {
+            "height" : 1036,
+            "width" : 822
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "823D0B86-C3C3-4DFB-AACF-EE7AC38B10E7",
+          "position" : {
+            "y" : 560.94885193274888,
+            "x" : 468
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1.0392491035029408,
+            "x" : 1
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        },
+        {
+          "customClassType" : "",
+          "name" : "ff_screen8",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "15B03198-8611-440B-AF9E-5B80032E8B69",
+          "size" : {
+            "height" : 1050,
+            "width" : 766
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "B46E2D97-8649-4011-ADB9-56995D45AFD0",
+          "position" : {
+            "y" : 555.10652363443933,
+            "x" : 466.40781210207575
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1.0214370515836899,
+            "x" : 1.0653405193560535
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        },
+        {
+          "customClassType" : "",
+          "name" : "ff_screen7",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "EC523FBE-96F8-4C53-AF2A-E2B72B996B21",
+          "size" : {
+            "height" : 1044,
+            "width" : 752
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "5410C9D3-C0A0-400E-BBF5-B0976314FDD0",
+          "position" : {
+            "y" : 560.05003219454738,
+            "x" : 466.73324683487272
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1.0321167597539962,
+            "x" : 1.0829071538597894
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        },
+        {
+          "customClassType" : "",
+          "name" : "ff_screen6",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "6FF1BDCB-6C3A-4485-B6CB-9C69F8B07A53",
+          "size" : {
+            "height" : 1090,
+            "width" : 750
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "57B08C6C-5DB8-471B-8D98-A3D2084C6D86",
+          "position" : {
+            "y" : 559,
+            "x" : 459.13976973627427
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1,
+            "x" : 1.0857949062700825
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        },
+        {
+          "customClassType" : "",
+          "name" : "ff_screen5",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "6D56DF82-DE2E-480B-8138-ED122C5FA377",
+          "size" : {
+            "height" : 1092,
+            "width" : 770
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "BEEEE5D1-9721-40CE-8AE0-CE7FF6ED3E76",
+          "position" : {
+            "y" : 559,
+            "x" : 468.32167826876332
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1,
+            "x" : 1.0564855203123038
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        },
+        {
+          "customClassType" : "",
+          "name" : "ff_screen4",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "E241D049-66B4-4FBB-B0AF-5DE032A1CE63",
+          "size" : {
+            "height" : 1036,
+            "width" : 792
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "5E926A4D-634D-4DA8-99E5-A4AA91305576",
+          "position" : {
+            "y" : 557.95795176942306,
+            "x" : 470.26653821952692
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1.0493310583616111,
+            "x" : 1.0386244018519626
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        },
+        {
+          "customClassType" : "",
+          "name" : "ff_screen3",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "B555E2B9-2CD0-4E35-B2E3-CA09148B573D",
+          "size" : {
+            "height" : 1106,
+            "width" : 840
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "421AC650-EA43-40DB-8803-328DCF989F88",
+          "position" : {
+            "y" : 559,
+            "x" : 468
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1,
+            "x" : 1
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        },
+        {
+          "customClassType" : "",
+          "name" : "ff_screen2",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "D2076BB7-D733-4927-99D5-B39A640D5D9A",
+          "size" : {
+            "height" : 1118,
+            "width" : 936
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "DBE4486F-259D-4DBA-9B2D-AF6E1B40275C",
+          "position" : {
+            "y" : 559,
+            "x" : 468.25194225459256
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1,
+            "x" : 0.89257793446395095
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        },
+        {
+          "customClassType" : "",
+          "name" : "ff_screen1",
+          "mask" : null,
+          "anchorPoint" : {
+            "y" : 0.5,
+            "x" : 0.5
+          },
+          "image_identifier" : "4A31BEFD-099C-4CD1-826A-054A19A607CC",
+          "size" : {
+            "height" : 738,
+            "width" : 510
+          },
+          "elementType" : "image",
+          "subelements" : [
+
+          ],
+          "identifier" : "FF107387-360E-4189-8D9E-1F7936014BC9",
+          "position" : {
+            "y" : 559.31392982274451,
+            "x" : 470.77793565677939
+          },
+          "rotation" : 0,
+          "classType" : "Default",
+          "scale" : {
+            "y" : 1.5270318237021878,
+            "x" : 1.6470157630065512
+          },
+          "opacity" : 1,
+          "isHidden" : false,
+          "isLocked" : false
+        }
+      ],
+      "identifier" : "927EF21E-1EFD-499F-9A05-EB69D8EF2ED5",
+      "position" : {
+        "y" : 750,
+        "x" : 750
+      },
+      "rotation" : 0,
+      "classType" : "Default",
+      "scale" : {
+        "y" : 1,
+        "x" : 1
+      },
+      "opacity" : 1,
+      "isHidden" : false,
+      "isLocked" : false
+    }
+  ],
+  "videoIdentifier" : null,
+  "identifier" : "DB9DADFF-D1BA-4D59-A885-D44B7A688A1C",
+  "position" : {
+    "y" : 0,
+    "x" : 0
+  },
+  "rotation" : 0,
+  "classType" : "Default",
+  "scale" : {
+    "y" : 1,
+    "x" : 1
+  },
+  "opacity" : 1,
+  "isHidden" : false,
+  "isLocked" : false
+}
